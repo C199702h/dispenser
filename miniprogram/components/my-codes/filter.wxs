@@ -1,0 +1,5 @@
+
+var datestr = function (str) {
+  return (getDate(str)).toLocaleString();
+}
+module.exports.datestr = datestr

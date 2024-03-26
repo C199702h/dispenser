@@ -1,0 +1,18 @@
+<!--components/my-codes/my-codes.wxml-->
+<wxs src="./filter.wxs" module="filter" />
+
+<view style="padding-left:10px; padding-top: 50px">
+  <view>1、可以点击复制到Safari中兑换</view>
+  <view>2、兑换码一经兑换就属于该Apple ID，其他人无法重复使用</view>
+  <view>3、已兑换的兑换码可多次下载、更新</view>
+  <view>4、同一兑换码可以安装在同一Apple ID登录的不同设备上</view>
+</view>
+<mp-cells ext-class="my-cells" title="我的所有兑换码">
+  <mp-cell link wx:for="{{codes}}" bindtap="setClipBoard" data-link="{{item.link}}" data-code="{{item.code}}">
+    <view>{{item.app_name}}</view>
+    <view slot="footer">
+      <!-- <block>{{item.code}}</block> -->
+      <block>{{filter.datestr(item.used_time)}}</block>
+    </view>
+  </mp-cell>
+</mp-cells>

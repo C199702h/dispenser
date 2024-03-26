@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="page">
+<view style="padding: 0 10px" class="weui-flex" wx:if="{{name}}">
+  <view class="weui-flex__item" style="font-size: 26px" >{{name}}，你好</view>
+  <navigator style="align-self:center; color: #f00" url="" class="weui-agree__link" bindtap="logout">退出</navigator>
+</view>
+  
+  <block wx:if="{{!isBind}}">
+    <login bind:bindSuccess="bindSuccess"></login>
+  </block>
+  <block wx:if="{{isBind}}">
+    <apply-codes bind:apply-success="applySuccess"></apply-codes>
+    <my-codes class="my-codes"></my-codes>
+  </block>
+</view>
